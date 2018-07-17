@@ -3,11 +3,16 @@ public class Rocket implements SpaceShip {
     private int maxWeight;
     private int weight;
 
+    //Constructor for Rocket Class
+
     public Rocket(int cost,int weight, int maxWeight){
         this.cost = cost;
         this.weight = weight;
         this.maxWeight = maxWeight;
     }
+
+    //Methods
+
     public int getWeight(){
         return weight;
     }

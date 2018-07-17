@@ -6,11 +6,13 @@ import java.util.Scanner;
 public class Simulation {
 
     private ArrayList<Item> items;
+
+    //Constructor for Simulation Class creates an empty ArrayList of item object
     public Simulation(){
         items = new ArrayList<>();
     }
 
-
+    //Method to read the text file which contains the list of items and populate the ArrayList
     public void loadItems(String path){
         File phase = new File(path);
         try {
@@ -21,7 +23,6 @@ public class Simulation {
                 Item item = new Item(value.substring(0,index), Integer.parseInt(value.substring(index+1))/1000);
                 items.add(item);
             }
-
         }
         catch (FileNotFoundException e){
             System.out.println("File not found");
@@ -29,6 +30,7 @@ public class Simulation {
 
     }
 
+    //Method returns a list of rockets of type U1 which are populated with the limited items each rocket could carry
     public ArrayList<Rocket> loadU1(){
         ArrayList<Rocket> rocketsU1 = new ArrayList<>();
         int i = 0;
@@ -43,6 +45,7 @@ public class Simulation {
         return rocketsU1;
     }
 
+    //Method returns a list of rockets of type U2 which are populated with the limited items each rocket could carry
     public ArrayList<Rocket> loadU2(){
         ArrayList<Rocket> rocketsU2 = new ArrayList<>();
         int i = 0;
@@ -57,6 +60,7 @@ public class Simulation {
         return rocketsU2;
     }
 
+    //Method returns total cost required to land and launch all U1 and U2 rockets including failed attempts
     public int runSimulation(ArrayList<Rocket> rockets){
         int totalBudget = 0;
         int fail = 0;
