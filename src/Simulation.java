@@ -26,6 +26,7 @@ public class Simulation {
         }
         catch (FileNotFoundException e){
             System.out.println("File not found");
+            System.exit(0);
         }
 
     }
